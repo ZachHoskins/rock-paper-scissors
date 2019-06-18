@@ -7,7 +7,83 @@
 <body>
   
   <script>
-    
+    let computerChoices = ['rock','paper','scissors'];
+    let playAgain = true;
+
+    function computerPlay(){
+      return computerChoices[Math.floor(Math.random()*computerChoices.length)];
+    }
+
+    function playRound(playerSelection, computerSelection){
+      if(computerSelection === 'rock'){
+
+        if(playerSelection === 'paper'){
+          console.log(`YOU: ${playerSelection}`);
+          console.log(`CPU: ${computerSelection}`);
+          console.log('You Win!');
+        } else if (playerSelection === 'scissors'){
+          console.log(`YOU: ${playerSelection}`);
+          console.log(`CPU: ${computerSelection}`);
+          console.log(`You Lose!`);
+        } else if (playerSelection === computerSelection){
+          console.log(`YOU: ${playerSelection}`);
+          console.log(`CPU: ${computerSelection}`);
+          console.log(`It's a Tie!`);
+        } else {
+          alert('Please Refresh and Enter a Valid Choice');
+        }
+
+      } else if (computerSelection === 'paper'){
+
+        if(playerSelection === 'scissors'){
+          console.log(`YOU: ${playerSelection}`);
+          console.log(`CPU: ${computerSelection}`);
+          console.log('You Win!');
+        } else if (playerSelection === 'rock'){
+          console.log(`YOU: ${playerSelection}`);
+          console.log(`CPU: ${computerSelection}`);
+          console.log(`You Lose!`);
+        } else if (playerSelection === computerSelection){
+          console.log(`YOU: ${playerSelection}`);
+          console.log(`CPU: ${computerSelection}`);
+          console.log(`It's a Tie!`);
+        } else {
+          alert('Please Refresh and Enter a Valid Choice');
+        }
+
+      } else if (computerSelection === 'scissors'){
+
+        if(playerSelection === 'rock'){
+          console.log(`YOU: ${playerSelection}`);
+          console.log(`CPU: ${computerSelection}`);
+          console.log('You Win!');
+        } else if (playerSelection === 'paper'){
+          console.log(`YOU: ${playerSelection}`);
+          console.log(`CPU: ${computerSelection}`);
+          console.log(`You Lose!`);
+        } else if (playerSelection === computerSelection){
+          console.log(`YOU: ${playerSelection}`);
+          console.log(`CPU: ${computerSelection}`);
+          console.log(`It's a Tie!`);
+        } else {
+          alert('Please Refresh and Enter a Valid Choice');
+        }
+
+      } else{
+        console.error("Something Went Wrong. Computer did not select Rock, Paper, or Scissors...");
+      }
+    }
+
+    function startRound(){
+      let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
+      let computerSelection = computerPlay();
+      console.log(playRound(playerSelection,computerSelection))
+    }
+
+    while (playAgain){
+      startRound();
+      playAgain = confirm("Play Again?");
+    }
   </script>
   
 </body>
