@@ -8,7 +8,9 @@
   
   <script>
     let computerChoices = ['rock','paper','scissors'];
-    let playAgain = true;
+    let gameOver = false;
+    let playerScore = 0;
+    let computerScore = 0;
 
     function computerPlay(){
       return computerChoices[Math.floor(Math.random()*computerChoices.length)];
@@ -21,14 +23,19 @@
           console.log(`YOU: ${playerSelection}`);
           console.log(`CPU: ${computerSelection}`);
           console.log('You Win!');
+          playerScore++;
+          getScoreBoard();
         } else if (playerSelection === 'scissors'){
           console.log(`YOU: ${playerSelection}`);
           console.log(`CPU: ${computerSelection}`);
           console.log(`You Lose!`);
+          computerScore++;
+          getScoreBoard();
         } else if (playerSelection === computerSelection){
           console.log(`YOU: ${playerSelection}`);
           console.log(`CPU: ${computerSelection}`);
           console.log(`It's a Tie!`);
+          getScoreBoard();
         } else {
           alert('Please Refresh and Enter a Valid Choice');
         }
@@ -39,14 +46,19 @@
           console.log(`YOU: ${playerSelection}`);
           console.log(`CPU: ${computerSelection}`);
           console.log('You Win!');
+          playerScore++;
+          getScoreBoard();
         } else if (playerSelection === 'rock'){
           console.log(`YOU: ${playerSelection}`);
           console.log(`CPU: ${computerSelection}`);
           console.log(`You Lose!`);
+          computerScore++;
+          getScoreBoard();
         } else if (playerSelection === computerSelection){
           console.log(`YOU: ${playerSelection}`);
           console.log(`CPU: ${computerSelection}`);
           console.log(`It's a Tie!`);
+          getScoreBoard();
         } else {
           alert('Please Refresh and Enter a Valid Choice');
         }
@@ -57,14 +69,19 @@
           console.log(`YOU: ${playerSelection}`);
           console.log(`CPU: ${computerSelection}`);
           console.log('You Win!');
+          playerScore++;
+          getScoreBoard();
         } else if (playerSelection === 'paper'){
           console.log(`YOU: ${playerSelection}`);
           console.log(`CPU: ${computerSelection}`);
           console.log(`You Lose!`);
+          computerScore++;
+          getScoreBoard();
         } else if (playerSelection === computerSelection){
           console.log(`YOU: ${playerSelection}`);
           console.log(`CPU: ${computerSelection}`);
           console.log(`It's a Tie!`);
+          getScoreBoard();
         } else {
           alert('Please Refresh and Enter a Valid Choice');
         }
@@ -80,9 +97,25 @@
       console.log(playRound(playerSelection,computerSelection))
     }
 
-    while (playAgain){
+    // Function to display current scoreboard
+    function getScoreBoard(){
+      return console.log(`YOU:${playerScore} | CPU:${computerScore}`);
+    }
+
+    function game(){
       startRound();
-      playAgain = confirm("Play Again?");
+
+      if(playerScore === 5){
+        gameOver = true;
+        alert(`YOU WIN!\n YOU:${playerScore} | CPU:${computerScore}`);
+      } else if (computerScore === 5){
+        gameOver = true;
+        alert(`YOU LOSE!\n YOU:${playerScore} | CPU:${computerScore}`);
+      } 
+    }
+
+    while (!gameOver){
+      game();
     }
   </script>
   
