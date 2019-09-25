@@ -13,6 +13,7 @@ let resultsText = document.createElement('div');
 let scoreBoardText = document.createElement('div');
 const gameOverContainer = document.querySelector("#game_over_text");
 let gameOverText = document.createElement('h2');
+gameOverText.classList.add('gameOver');
 
 buttons.forEach((button) => {
   button.addEventListener('click', (e) => {
@@ -35,11 +36,11 @@ function startRound() {
 
   if (playerScore === 5) {
     gameOver = true;
-    gameOverText.style.whiteSpace = "pre"; //Allows line break in template literal
+    container.removeChild(content);
     gameOverText.textContent = `YOU WIN!\nYOU:${playerScore} | CPU:${computerScore}`;
   } else if (computerScore === 5) {
     gameOver = true;
-    gameOverText.style.whiteSpace = "pre"; //Allows line break in template literal
+    container.removeChild(content);
     gameOverText.textContent = `YOU LOSE!\nYOU:${playerScore} | CPU:${computerScore}`;
   }
   gameOverContainer.appendChild(gameOverText);
